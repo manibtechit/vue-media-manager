@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
+@use "sass:math";
 $fileWidth: 70px;
 $fileBorderWidth: 2px;
 $filePreviewHeight: 60px;
@@ -80,12 +81,12 @@ $fileBorderColorH: #333;
     padding: 4px;
     .thumb {
         width: 100%;
-        margin-top: -(($fileWidth - $filePreviewHeight)/2);
+        margin-top: -(math.div(($fileWidth - $filePreviewHeight), 2));
     }
     .icon {
         text-align: center;
         line-height: $filePreviewIconHeight;
-        font-size: ($filePreviewIconHeight) / 1.3;
+        font-size: math.div($filePreviewIconHeight, 1.3);
         .fa {
             vertical-align: middle;
         }
@@ -131,7 +132,7 @@ $fileBorderColorH: #333;
         color: #000;
         margin: 0 4px;
         line-height: $fileTitleHeight;
-        font-size: $fileTitleHeight/2;
+        font-size: math.div($fileTitleHeight, 2);
         transition: color 0.4s;
     }
 }
